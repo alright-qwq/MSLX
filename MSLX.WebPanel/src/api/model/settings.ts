@@ -9,9 +9,10 @@ export interface SettingsModel {
   isEmbeddedDaemon: boolean;
   oAuthMSLClientID: string;
   oAuthMSLClientSecret: string;
+  loliaOAuthClientId: string;
+  loliaOAuthClientSecret: string;
   downloadThreadCount: number;
 }
-
 export interface WebpanelSettingsModel {
   webPanelStyleDarkBackgroundOpacity: number;
   webPanelStyleDarkComponentsOpacity: number;

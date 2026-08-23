@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 
 namespace MSLX.SDK.Models.Frp;
 
@@ -12,11 +12,11 @@ public class CreateFrpRequest
     
     // 在这里限制传入的服务提供商
     [Required(ErrorMessage = "提供者 (provider) 不能为空")]
-    [AllowedValues("MSLFrp", "Custom","MSL P2P","ME Frp","Sakura Frp","ChmlFrp", ErrorMessage = "提供者 (provider) 错误")]
+    [AllowedValues("MSLFrp", "Custom", "MSL P2P", "ME Frp", "Sakura Frp", "ChmlFrp", "Lolia Frp", ErrorMessage = "提供者 (provider) 错误")]
     public string provider { get; set; }
     
     [Required(ErrorMessage = "配置文件格式 (format) 不能为空")]
-    [AllowedValues("toml", "ini","cmd", ErrorMessage = "配置文件格式 (format) 错误")]
+    [AllowedValues("toml", "ini", "yaml", "cmd", ErrorMessage = "配置文件格式 (format) 错误")]
     public string format { get; set; }
 }
 

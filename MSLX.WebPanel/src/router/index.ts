@@ -32,6 +32,11 @@ const defaultRouterList: Array<RouteRecordRaw> = [
     component: () => import('@/pages/oauth/index.vue'),
   },
   {
+    path: '/oauth/callback/lolia',
+    name: 'lolia-oauth-callback',
+    component: () => import('@/pages/oauth/LoliaCallback.vue'),
+  },
+  {
     path: '/',
     redirect: '/dashboard/base',
   },

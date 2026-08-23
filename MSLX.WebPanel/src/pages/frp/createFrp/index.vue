@@ -6,6 +6,7 @@ import MSLP2P from '@/pages/frp/createFrp/components/MSLP2P.vue';
 import MEFrp from '@/pages/frp/createFrp/components/MEFrp/index.vue';
 import SakuraFrp from '@/pages/frp/createFrp/components/SakuraFrp/index.vue';
 import ChmlFrp from '@/pages/frp/createFrp/components/ChmlFrp/index.vue';
+import LoliaFrp from '@/pages/frp/createFrp/components/LoliaFrp/index.vue';
 import { usePluginUIStore, useNodeStore } from '@/store';
 import NodeSwitcher from '@/components/node-switcher/index.vue';
 
@@ -41,6 +42,7 @@ const handleNodeChange = () => {};
           <t-radio-button :value="3">ME Frp</t-radio-button>
           <t-radio-button :value="4">ChmlFrp</t-radio-button>
           <t-radio-button :value="5">Sakura Frp</t-radio-button>
+          <t-radio-button :value="6">Lolia Frp</t-radio-button>
           <t-radio-button
             v-for="(ext, index) in pluginUIStore.extensions['frp-create-provider']"
             :key="'plugin-frp-tab-' + index"
@@ -53,7 +55,7 @@ const handleNodeChange = () => {};
       </div>
     </div>
 
-    <div class="relative w-full" :key="nodeStore.activeNodeId">
+    <div :key="nodeStore.activeNodeId" class="relative w-full">
       <div v-show="value === 1" class="list-item-anim" style="animation-delay: 0.1s">
         <index />
       </div>
@@ -72,6 +74,10 @@ const handleNodeChange = () => {};
 
       <div v-show="value === 5" class="list-item-anim" style="animation-delay: 0.1s">
         <sakura-frp />
+      </div>
+
+      <div v-show="value === 6" class="list-item-anim" style="animation-delay: 0.1s">
+        <lolia-frp />
       </div>
 
       <div

@@ -26,6 +26,8 @@ const sysData = reactive<SettingsModel>({
   isEmbeddedDaemon: false,
   oAuthMSLClientID: '',
   oAuthMSLClientSecret: '',
+  loliaOAuthClientId: '',
+  loliaOAuthClientSecret: '',
   downloadThreadCount: 5,
 });
 
@@ -46,7 +48,7 @@ const initData = async () => {
     if (sysData.isEmbeddedDaemon) {
       sysData.fireWallBanLocalAddr = false;
       sysData.listenHost = 'localhost';
-    }
+}
   } catch (e: any) {
     MessagePlugin.error(e.message || '系统设置加载失败');
   } finally {
@@ -78,10 +80,12 @@ const handleRefresh = () => {
 
 defineExpose({ initData });
 
+const loliaCallbackUrl = ref('');
 const callbackUrl = ref('');
 
 onMounted(() => {
   callbackUrl.value = `${window.location.origin}/oauth/callback`;
+  loliaCallbackUrl.value = `${window.location.origin}/oauth/callback/lolia`;
 });
 </script>
 
@@ -256,6 +260,60 @@ onMounted(() => {
               </t-button>
             </t-form-item>
           </template>
+            <div class="flex items-center gap-3 mt-8 mb-6">
+              <span class="text-xs font-extrabold text-[var(--td-text-color-secondary)] uppercase tracking-widest"
+                >Lolia OAuth 2.0</span
+              >
+              <div class="h-px bg-zinc-200/60 dark:bg-zinc-700/60 flex-1"></div>
+            </div>
+
+            <t-form-item label="Client ID">
+              <t-input v-model="sysData.loliaOAuthClientId" placeholder="请输入 Lolia Client ID" class="!w-full sm:!w-96">
+                <template #prefix-icon><server-icon class="opacity-60 text-zinc-400" /></template>
+              </t-input>
+            </t-form-item>
+
+            <t-form-item label="Client Secret">
+              <template #help>
+                <span class="text-[11px] font-medium text-[var(--td-text-color-secondary)] mt-1 inline-block"
+                  >配置后用户可通过 OAuth2 连接 Lolia FRP 并创建隧道。</span
+                >
+              </template>
+              <t-input
+                v-model="sysData.loliaOAuthClientSecret"
+                type="password"
+                placeholder="请输入 Lolia Client Secret"
+                class="!w-full sm:!w-96"
+              >
+                <template #prefix-icon><control-platform-icon class="opacity-60 text-zinc-400" /></template>
+              </t-input>
+            </t-form-item>
+
+            <t-form-item label="回调地址">
+              <template #help>
+                <span class="text-[11px] font-medium text-[var(--td-text-color-secondary)] mt-1 inline-block"
+                  >请将此地址完整填入 Lolia OAuth 应用的 Redirect URIs。</span
+                >
+              </template>
+              <t-input
+                :value="loliaCallbackUrl"
+                readonly
+                placeholder="正在获取当前域名..."
+                class="!w-full sm:!w-96 !bg-zinc-50/50 dark:!bg-zinc-900/30"
+              >
+                <template #prefix-icon><link-icon class="opacity-60 text-zinc-400" /></template>
+                <template #suffix>
+                  <t-button
+                    variant="text"
+                    shape="square"
+                    class="hover:!bg-[var(--color-primary)]/10 hover:!text-[var(--color-primary)] !h-auto !w-auto !p-1.5 !rounded-md"
+                    @click="copyText(loliaCallbackUrl, true, '回调地址复制成功')"
+                  >
+                    <t-icon name="file-copy" />
+                  </t-button>
+                </template>
+              </t-input>
+            </t-form-item>
 
           <div class="flex items-center gap-3 mt-8 mb-6">
             <span class="text-xs font-extrabold text-[var(--td-text-color-secondary)] uppercase tracking-widest"

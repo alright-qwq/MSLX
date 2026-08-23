@@ -66,7 +66,6 @@ if (!isEmbeddedDaemon && !string.IsNullOrWhiteSpace(argHost))
     IConfigBase.Config.WriteConfigKey("listenHost", argHost);
     configUpdated = true;
 }
-
 // 传入了 port 参数，更新配置
 if (!string.IsNullOrWhiteSpace(argPort))
 {
@@ -207,7 +206,8 @@ builder.Services.AddSignalR();
 builder.Services.AddSingleton<Microsoft.AspNetCore.Authorization.IAuthorizationMiddlewareResultHandler, CustomAuthorizationResultHandler>();
 
 // 注册单例服务
-builder.Services.AddSingleton<IFrpProcessService, FrpProcessService>();
+builder.Services.AddHttpClient<LoliaFrpService>();
+        builder.Services.AddSingleton<IFrpProcessService, FrpProcessService>();
 builder.Services.AddSingleton(typeof(IBackgroundTaskQueue<>), typeof(BackgroundTaskQueue<>));
 builder.Services.AddSingleton<IMCServerService,MCServerService>();
 builder.Services.AddSingleton<IDockerService,DockerService>();

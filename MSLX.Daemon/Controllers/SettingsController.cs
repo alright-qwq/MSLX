@@ -37,6 +37,8 @@ public class SettingsController : ControllerBase
                     IsEmbeddedDaemon = isEmbeddedDaemon,
                     OAuthMSLClientID = config["oAuthMSLClientID"] ?? "",
                     OAuthMSLClientSecret = config["oAuthMSLClientSecret"] ?? "",
+                    LoliaOAuthClientId = config["loliaOAuthClientId"] ?? "",
+                    LoliaOAuthClientSecret = config["loliaOAuthClientSecret"] ?? "",
                     DownloadThreadCount = config["downloadThreadCount"] ?? 5,
                 }
             }
@@ -67,6 +69,8 @@ public class SettingsController : ControllerBase
         }
         IConfigBase.Config.WriteConfigKey("oAuthMSLClientID", request.OAuthMSLClientID);
         IConfigBase.Config.WriteConfigKey("oAuthMSLClientSecret", request.OAuthMSLClientSecret);
+        IConfigBase.Config.WriteConfigKey("loliaOAuthClientId", request.LoliaOAuthClientId);
+        IConfigBase.Config.WriteConfigKey("loliaOAuthClientSecret", request.LoliaOAuthClientSecret);
         IConfigBase.Config.WriteConfigKey("downloadThreadCount", request.DownloadThreadCount);
         return Ok(new ApiResponse<object>
             {

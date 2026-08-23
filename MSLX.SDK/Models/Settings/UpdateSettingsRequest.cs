@@ -36,11 +36,14 @@ public class UpdateSettingsRequest
     [RegularExpression(@"^$|^.{112}$", ErrorMessage = "MSL OAuth Client Secret 格式错误")]
     public string OAuthMSLClientSecret { get; set; } = "";
 
+    public string LoliaOAuthClientId { get; set; } = "";
+
+    public string LoliaOAuthClientSecret { get; set; } = "";
+
     [Required(ErrorMessage = "下载线程数量 (downloadThreadCount) 不能为空")]
     [Range(1, 8, ErrorMessage = "下载线程数量 (downloadThreadCount) 必须在 1-8 之间")]
     public int DownloadThreadCount { get; set; } = 5;
 }
-
 public class UpdateWebPanelStyleSettingsRequest
 {
     public string WebPanelStyleLightBackground { get; set; } = "";

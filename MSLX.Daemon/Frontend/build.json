@@ -1,6 +1,6 @@
 {
   "version": "1.6.1",
-  "buildTime": "2026-08-20 20:09:29",
+  "buildTime": "2026-08-23 22:44:50",
   "dependencies": {
     "@codemirror/commands": "^6.10.3",
     "@codemirror/lang-css": "^6.3.1",
@@ -77,10 +77,34 @@
     "vite-svg-loader": "^5.1.0",
     "vue-tsc": "^2.0.26"
   },
-  "commitId": "110be37309670ccde9f8ff0af4ba076ef11914df",
-  "commitMsg": "feat(webpanel & daemon): 创建服务端 & 更新服务端的任务同步到后台任务管理",
+  "commitId": "70cfa388bd4c3fc2840f28b49818862aaaf09c4f",
+  "commitMsg": "perf(webpanel): 优化Linux下更新弹窗信息",
   "commitAuthor": "luluxiaoyu",
   "history": [
+    {
+      "commitId": "70cfa388bd4c3fc2840f28b49818862aaaf09c4f",
+      "commitTime": "2026-08-20 20:55:33 +0800",
+      "commitAuthor": "luluxiaoyu",
+      "commitMsg": "perf(webpanel): 优化Linux下更新弹窗信息"
+    },
+    {
+      "commitId": "31d30c1deff43e1c26c44995dfd93b99cb0dd142",
+      "commitTime": "2026-08-20 20:51:00 +0800",
+      "commitAuthor": "luluxiaoyu",
+      "commitMsg": "perf(webpanel): 初始化登录弹窗新增防误触功能"
+    },
+    {
+      "commitId": "dabc47cab9af1a83ddebd0a246499c7d8db0fadc",
+      "commitTime": "2026-08-20 20:13:31 +0800",
+      "commitAuthor": "小宇",
+      "commitMsg": "Merge pull request #236 from MSLTeam/dev"
+    },
+    {
+      "commitId": "0551c57a639271988a0830c23fdf70085c3c0052",
+      "commitTime": "2026-08-20 20:10:07 +0800",
+      "commitAuthor": "luluxiaoyu",
+      "commitMsg": "bumpver(desktop & daemon & webpanel): 更新到v1.6.1版本"
+    },
     {
       "commitId": "110be37309670ccde9f8ff0af4ba076ef11914df",
       "commitTime": "2026-08-20 20:07:36 +0800",
@@ -356,30 +380,6 @@
       "commitTime": "2026-08-11 21:36:57 +0800",
       "commitAuthor": "luluxiaoyu",
       "commitMsg": "fix(daemon): 修复Forge更换版本可能存在启动参数传错的问题"
-    },
-    {
-      "commitId": "4347151163ee12b458f40bdd650742439e953e96",
-      "commitTime": "2026-08-11 16:31:41 +0800",
-      "commitAuthor": "luluxiaoyu",
-      "commitMsg": "fix(ci): 修复macos appcast数据文件未同步的问题"
-    },
-    {
-      "commitId": "b799c426c44a0d97edbd1e6c0b4e1d1f204a7aad",
-      "commitTime": "2026-08-11 16:13:10 +0800",
-      "commitAuthor": "luluxiaoyu",
-      "commitMsg": "chore(ci): 移除tag版本号验证"
-    },
-    {
-      "commitId": "63f776b74b8d72c9c19d5f6123fff031baa9c9b5",
-      "commitTime": "2026-08-11 16:04:14 +0800",
-      "commitAuthor": "小宇",
-      "commitMsg": "Merge pull request #218 from MSLTeam/dev"
-    },
-    {
-      "commitId": "af9d16c233febdd6941234921b26af90f59f48e0",
-      "commitTime": "2026-08-11 16:02:46 +0800",
-      "commitAuthor": "luluxiaoyu",
-      "commitMsg": "bumpver(daemon & webpanel & desktop): 更新到v1.5.10版本"
     }
   ]
 }
